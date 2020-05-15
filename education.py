@@ -1,7 +1,7 @@
 import requests
 
 
-r = requests.get("https://stepic.org/media/attachments/course67/3.6.2/603.txt")
+r = requests.get("")
 text = r.text
 
 line = text.splitlines()
