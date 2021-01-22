@@ -42,3 +42,10 @@ def likes(names):
     else:
         return f"{names[0]}, {names[1]} and {len(names) - 2} others like this"
         
+import re
+
+def disemvowel(string):
+    comp = re.compile(r'a|e|i|o|u', re.IGNORECASE)
+    new_string = re.sub(comp,'', string)
+    return new_string
+        
