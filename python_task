@@ -1,0 +1,44 @@
+def descending_order(num):
+    num = list(str(num))
+    num.sort(reverse=True)
+    return int(''.join(num))
+    
+def find_it(seq):
+    for char in seq:
+        n = seq.count(char)
+        if n % 2 != 0:
+            return char
+            
+def persistence(n):
+    if len(str(n)) <= 1:
+        return 0
+    n = list(str(n))
+    count = 0
+    while len(n) != 1:
+        result = int(n[0])
+        for numb in n[1:]:
+            result *= int(numb)
+        n = n = list(str(result))
+        count += 1
+    return count
+    
+def duplicate_count(text):
+    text = text.lower()
+    duplicate_list = []
+    for char in text:
+        if char not in duplicate_list and text.count(char) > 1:
+            duplicate_list.append(char)
+    return len(duplicate_list)
+    
+def likes(names):
+    if len(names) == 0:
+        return "no one likes this"
+    elif len(names) == 1:
+        return f"{names[0]} likes this"
+    elif len(names) == 2:
+        return f"{names[0]} and {names[1]} like this"
+    elif len(names) == 3:
+        return f"{names[0]}, {names[1]} and {names[2]} like this"
+    else:
+        return f"{names[0]}, {names[1]} and {len(names) - 2} others like this"
+        
