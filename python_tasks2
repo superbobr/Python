@@ -1,0 +1,21 @@
+def to_camel_case(text):
+    new_text = []
+    text = list(text)
+    for char in text:
+        if char == '-' or char == '_':
+            text[text.index(char) + 1] = text[text.index(char) + 1].upper()
+            text.remove(char)
+    text = ''.join(text)
+    return text
+    
+def solution(s):
+    if len(s) % 2 != 0:
+        s += '_'
+    new_s = []
+    pair = ''
+    for char in s:
+        pair += char
+        if len(pair) == 2:
+            new_s.append(pair)
+            pair = ''
+    return new_s
