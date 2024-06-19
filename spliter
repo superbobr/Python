@@ -1,0 +1,40 @@
+#Bill Splitter from hyperskill
+
+import random
+
+
+people_count = int(input())
+
+flag = True
+lucky_flag = False
+guest_dict = {}
+lucky_person = None
+
+if people_count < 1:
+    print('No one is joining for the party')
+    flag = False
+else:
+    for _ in range(people_count):
+        guest = input()
+        guest_dict[guest] = 0
+
+check = int(input())
+
+lucky = input()
+
+if lucky == 'Yes':
+    lst = list(guest_dict.keys())
+    lucky_person = random.choice(lst)
+    print(f'{lucky_person} is the lucky one!')
+    lucky_flag = True
+    total = round(check / (len(guest_dict) - 1), 2)
+else:
+    print('No one is going to be lucky')
+    total = round(check / len(guest_dict), 2)
+
+for i in guest_dict:
+    if i != lucky_person:
+        guest_dict[i] = total
+
+if flag:
+    print(guest_dict)
