@@ -16,3 +16,16 @@ print(launch_time - command_time)
 
 
 
+
+n = int(input())
+time_interval = timedelta()
+for _ in range(n):
+    days, hours, minutes = map(int, input().split())
+    time_interval += timedelta(days=days, hours=hours, minutes=minutes)
+
+print(time_interval.days, time_interval.seconds)
+
+
+
+
+
